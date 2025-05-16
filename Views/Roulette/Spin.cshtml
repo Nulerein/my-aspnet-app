@@ -1,0 +1,52 @@
+@model my_aspnet_app.Models.RouletteResult
+
+<h1>Результат рулетки</h1>
+
+<p>Выигравший цвет: <strong>@Model.WinningColor</strong></p>
+
+<h2>Ставки</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Имя пользователя</th>
+            <th>Сумма</th>
+            <th>Цвет</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var bet in (IEnumerable<my_aspnet_app.Models.RouletteBet>)ViewData["Bets"])
+        {
+            <tr>
+                <td>@bet.UserName</td>
+                <td>@bet.BetAmount</td>
+                <td>@bet.BetColor</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<h2>Выигравшие ставки</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Имя пользователя</th>
+            <th>Сумма</th>
+            <th>Цвет</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var bet in (IEnumerable<my_aspnet_app.Models.RouletteBet>)ViewData["Bets"])
+        {
+            if (bet.BetColor == Model.WinningColor)
+            {
+                <tr>
+                    <td>@bet.UserName</td>
+                    <td>@bet.BetAmount</td>
+                    <td>@bet.BetColor</td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+
+<a asp-action="Index">Вернуться к ставкам</a>

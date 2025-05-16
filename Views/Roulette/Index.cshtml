@@ -1,0 +1,45 @@
+@model IEnumerable<my_aspnet_app.Models.RouletteBet>
+
+<h1>Рулетка</h1>
+
+<form asp-action="PlaceBet" method="post">
+    <label for="userName">Имя пользователя:</label>
+    <input type="text" id="userName" name="userName" required />
+
+    <label for="betAmount">Сумма ставки:</label>
+    <input type="number" id="betAmount" name="betAmount" required />
+
+    <label for="betColor">Цвет ставки:</label>
+    <select id="betColor" name="betColor">
+        <option value="red">Красный</option>
+        <option value="black">Черный</option>
+        <option value="green">Зеленый</option>
+    </select>
+
+    <button type="submit">Сделать ставку</button>
+</form>
+
+<h2>Текущие ставки</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Имя пользователя</th>
+            <th>Сумма</th>
+            <th>Цвет</th>
+            <th>Время</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var bet in Model)
+        {
+            <tr>
+                <td>@bet.UserName</td>
+                <td>@bet.BetAmount</td>
+                <td>@bet.BetColor</td>
+                <td>@bet.BetTime</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-action="Spin">Крутить рулетку</a>

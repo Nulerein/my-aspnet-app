@@ -1,0 +1,13 @@
+@model List<my_aspnet_app.Models.Activity>
+@{
+    ViewData["Title"] = "Лента событий";
+}
+<h2>Лента событий</h2>
+<ul class="list-group">
+    @foreach (var activity in Model)
+    {
+        <li class="list-group-item">
+            <strong>@activity.Username</strong>: @activity.Description <span class="text-muted" style="float:right">@activity.CreatedAt.ToString("g")</span>
+        </li>
+    }
+</ul> 

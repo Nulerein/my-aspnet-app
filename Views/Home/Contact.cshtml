@@ -1,0 +1,18 @@
+<h1>Свяжитесь с нами</h1>
+<p>@ViewData["Message"]</p>
+<form method="post" action="/contact">
+    <div>
+        <label for="name">Ваше имя:</label>
+        <input type="text" id="name" name="name" placeholder="Введите ваше имя" required />
+    </div>
+    <div>
+        <label for="email">Ваш Email:</label>
+        <input type="email" id="email" name="email" placeholder="Введите ваш email" required />
+    </div>
+    <div>
+        <label for="message">Ваше сообщение:</label>
+        <textarea id="message" name="message" placeholder="Напишите ваше сообщение" required></textarea>
+    </div>
+    <button type="submit">Отправить</button>
+</form>
+<p>Мы рады любым вопросам и предложениям, связанным с Counter-Strike!</p>
