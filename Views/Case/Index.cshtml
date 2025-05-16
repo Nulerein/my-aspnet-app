@@ -1,0 +1,13 @@
+@model IEnumerable<my_aspnet_app.Models.Case>
+
+<h1>Кейсы CS:GO</h1>
+
+<div class="cases">
+    @foreach (var csgoCase in Model)
+    {
+        <div class="case">
+            <h2>@csgoCase.Name</h2>
+            <a asp-action="Open" asp-route-id="@csgoCase.Id" class="btn btn-primary">Открыть кейс</a>
+        </div>
+    }
+</div>

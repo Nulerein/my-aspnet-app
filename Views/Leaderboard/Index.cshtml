@@ -1,0 +1,28 @@
+@model List<my_aspnet_app.Models.UserProfile>
+@{
+    ViewData["Title"] = "Топ игроков";
+}
+<h2>Топ игроков</h2>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Аватар</th>
+            <th>Имя</th>
+            <th>Уровень</th>
+            <th>Баланс</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (int i = 0; i < Model.Count; i++)
+        {
+            <tr>
+                <td>@(i+1)</td>
+                <td><img src="@Model[i].AvatarUrl" alt="avatar" width="40" height="40" style="border-radius:50%"></td>
+                <td>@Model[i].Username</td>
+                <td>@Model[i].Level</td>
+                <td>@Model[i].Balance.ToString("C")</td>
+            </tr>
+        }
+    </tbody>
+</table> 
